@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100dvh;
+    font-family:  sans-serif;
+    
+}
+
+[disabled] {
+    cursor:auto !important;
+}
+
+.step-display {
+    margin: .5em 0;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    max-width: 450px;
+}
+
+.step-display > * {
+    border: thin solid #cecece;
+    padding: 1em;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 500ms ease;
+}
+
+
+
+.step-display > .active {
+    background-color: rgb(0, 150, 255);
+    color: #fff;
+    border: 0;
+    transform: scale(1.2);
+    position: relative;
+    isolation: isolate;
+    font-weight: bold;
+}
+
+.step-display > .previouslyActive {
+    background-color: rgb(0, 150, 255);
+    color: #fff;
+    border: 0;
+    transform: scale(1.2);
+    position: relative;
+    isolation: isolate;
+    font-weight: bold;
+}
+
+.step-display > .active::before {
+    content: "";
+    position: absolute;
+    inset: 0rem;
+    z-index: -1;
+    background: rgb(0 159 255 / .3);
+    border-radius: inherit;
+    animation: pulse 1000ms ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    to {
+        scale: 1.2;
+    }
+}
+
+
+
+
+.multi-step-form {
+    width: 70%;
+    max-width: 450px;
+    margin: 1em 0;
+}
+
+.multi-step-form > .card {
+    outline: thin solid #cecece;
+   padding: 1em;
+   width: 100%;
+    border-radius: .5rem;
+   display: none;
+    box-shadow: 3px 4px 15px rgb(0 0 0 /.1);
+}
+
+.card > .step-title {
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.card > .form-group {
+    width: 100%;
+    position: relative;
+}
+
+.form-group > input {
+    border: 0;
+    padding: 1em .5em;
+    outline: 1px solid #cecece;
+    border-radius: .2rem;
+    width: 100%;
+    margin: 1em 0;
+    color: #555;
+}
+
+.form-group > input:is(:hover, :focus, :active) {
+    outline-color: rgb(0 150 255);
+}
+
+.form-group > label {
+    font-weight: 100;
+    position: absolute;
+    top: 1.5em;
+    left: .5em;
+    margin: auto;
+    color: #cecece;
+    pointer-events: none;
+    transition: all 300ms ease;
+/*     z-index: -1; */
+    
+}
+
+.form-group:has(:focus-within) > label,
+.form-group > label.stay-suspended{
+    transform: translateY(-20px);
+    background: #fff;
+    padding-inline: .5em;
+    color: rgb(0 150 255);
+}
+
+
+
+.card > button[type="button"] {
+    border: 0;
+    padding: 1em;
+    width: 30%;
+    cursor: pointer;
+    border-radius: .5rem;
+}
+.card > button[type="button"].active {
+    background-color: rgb(0, 150, 255);
+    color: #fff;
+    font-weight: bold;
+}
+
+.card > [type="submit"] {
+    border: 0;
+    padding: .7em;
+    width: 100%;
+    cursor: pointer;
+    background-color: rgb(0 150 255);
+    color: #fff;
+    font-size: 1rem;
+    border-radius: .2rem;
+    transition: all 300ms ease;
+}
+
+.card > [type="submit"]:hover {
+    background-color: rgb(0 150 255 / .8);
+}
+
+/* JS Stuff */
+.multi-step-form > .card.active {
+    display: block;
+}

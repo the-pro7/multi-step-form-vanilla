@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Multi Step Form</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <div class="step-display" data-step-display>
+            <span data-step-value>1</span>
+            <span data-step-value>2</span>
+            <span data-step-value>3</span>
+        </div>
+        <form class="multi-step-form" data-multi-step-form>
+            <div data-step class="card">
+                <h1 class="step-title">User credentials</h1>
+                <div class="form-group">
+                    <label for="name">First Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="button" data-previous class="previous" disabled>Previous</button>
+                <button type="button" data-next class="active next">Next</button>
+            </div>
+            <div data-step class="card">
+                <h1 class="step-title">Other Data</h1>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city">
+                </div>
+                <div class="form-group">
+                    <label for="zipcode">Zipcode</label>
+                    <input type="text" id="zipcode">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address">
+                </div>
+                <button type="button" data-previous class="active">Previous</button>
+                <button type="button" data-next class="active">Next</button>
+            </div>
+            <div data-step class="card">
+                <h1 class="step-title">Social Media</h1>
+                <div class="form-group">
+                    <label for="facebook">Facebook(url)</label>
+                    <input type="url" id="facebook">
+                </div>
+                <div class="form-group">
+                    <label for="instagram">Instagram(url)</label>
+                    <input type="url" id="instagram">
+                </div>
+                <div class="form-group">
+                    <label for="twitter">Twitter/X(url)</label>
+                    <input type="url" id="twitter">
+                </div>
+                <div class="form-group">
+                    <label for="linkedin">Linkedin(url)</label>
+                    <input type="url" id="linkedin">
+                </div>
+                <button type="submit" class="submit-cta">Submit</button>
+            </div>
+        </form>
+        <script src="script.js" defer></script>
+    </body>
+</html>
